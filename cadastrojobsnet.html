@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georama:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" 
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="cssjobsnet.css">
+    <title>JOBS.net - O maior portal de empregos em TI do Brasil!</title>
+</head>
+<body>
+    <div class=cabeçalho id= cabeçalho >
+        <img src="C:\IzakeAna\Ana\CURSOS\GAMA ACADEMY\StartTech\HTML\Imagens\jobslogo.png" alt="" width="8%">
+        <ul id=menu>
+            <li> 
+                <a href="Jobsnet.html"> <b>HOME</b> </a> 
+            </li>
+            <li> 
+                <a href="jobsnetquemsomos.html"> <b>QUEM SOMOS</b> </a>
+            </li>
+            <li> 
+                <a href="C:\IzakeAna\Ana\CURSOS\GAMA ACADEMY\StartTech\Desafio Final\vagasjobsnet.html" > <b>VAGAS</b> </a>
+            </li>
+            <li> 
+                <a href="C:\IzakeAna\Ana\CURSOS\GAMA ACADEMY\StartTech\Desafio Final\cadastrojobsnet.html" > <b>CADASTRE-SE</b> </a>
+            </li>
+        </ul> 
+    </div>
+    <hr>
+    <br>
+    <div id="title">
+    <h2 >DADOS PESSOAIS</h2>
+    </div>
+    <div id=dadoscadastro class="form-inline">
+    <hr>
+
+    <p><h3>
+        <label>Nome Completo
+            <input required= "" name="nome" type="text" id="nome" size="60" /></label><br /> 
+        <label>Cargo Pretendido
+            <input name="cargo" type="text" id="cargo" size="58" /></label><br />             
+    </h3>
+    </p>    
+    <p> <h3>
+        <label> Data de Nascimento
+        <input type="date"></label><br>
+        Estado Civil
+        <select name "select">
+            <option value= "valor1">- Selecione -</option>
+            <option value= "valor2">Solteiro(a)</option>
+            <option value= "valor3">Casado(a)</option>
+            <option value= "valor4">Viúvo(a)</option>
+        </select>
+        Sexo
+        <select name "select">
+            <option value= "valor1">- Selecione -</option>
+            <option value= "valor2">Feminino</option>
+            <option value= "valor3">Masculino</option>
+            <option value= "valor4">Não Binário</option>
+        </select>
+    </p>
+    </h3>
+    <p><h3>
+<html>
+    <head>
+    <title>ViaCEP Webservice</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- Adicionando Javascript -->
+    <script>
+    
+    function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+            document.getElementById('uf').value=("");
+            }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('uf').value=(conteudo.uf);
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('rua').value="...";
+                document.getElementById('bairro').value="...";
+                document.getElementById('cidade').value="...";
+                document.getElementById('uf').value="...";
+             
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+
+    </script>
+    </head>
+
+    <body>
+    <!-- Inicio do formulario -->
+      <form method="get" action=".">
+        <label>Cep:
+        <input name="cep" type="text" id="cep" value="" size="10" maxlength="9" placeholder="00.000-000"
+               onblur="pesquisacep(this.value);" /></label><br />
+        <label>Rua:
+        <input name="rua" type="text" id="rua" size="60" /></label> 
+        <label> Número:
+        <input name= "numero" type="=number" id="numero" size="10" /></label><br /> 
+        <label>Bairro:
+        <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+        <label>Cidade:
+        <input name="cidade" type="text" id="cidade" size="40" /></label>
+        <label>Estado:
+        <input name="uf" type="text" id="uf" size="2" /></label><br />
+       </form>
+    </body>
+</html>
+      <p><h3>
+        Telefone Fixo
+        <input type="text" data-mask="(00) 0000-0000" data-mask-selectonfocus="true" placeholder="Ex.: (00) 00000-0000">
+        Telefone Celular
+        <input type="text" name="telefone" data-mask="(00) 0000-0000" data-mask-selectonfocus="true" placeholder="Ex.: (00) 00000-0000">
+    </h3></p>
+    <p><h3>
+        <label> E-mail 
+            <input name="email" type="email" id="uf" size="40" placeholder="seunome@dominio.com.br" /></label><br />
+    </h3></p>
+<br>
+<div id=title> 
+<h2>DOCUMENTOS</h2>
+</div>   
+    <hr>
+    <div display=inline>
+    <p><h3>
+        <label> CPF
+            <input type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00"></label><br />
+        <label>Identidade (RG)
+            <input name="RG" type="text" id="rg" size="20"/></label><br />
+    </div>
+
+    <div id=anexar class="form-group">
+       <h3> <label for="exampleInputFile">Anexe aqui o seu currículo</label>
+        <input type="file" id="exampleInputFile"></h3>
+    </div>
+    </h3></p>
+</body>
+
+<p >
+ Importante: Ao clicar no botão abaixo, você concorda com as políticas de privacidade praticadas pelo Jobs.net.
+</p>
+<a href="C:\IzakeAna\Ana\CURSOS\GAMA ACADEMY\StartTech\Desafio Final\mensagemfinal.html" >
+<button id="button2"> Cadastrar</a>
+    
+</button>
+</div>
+<br>
+<br>
+
+
+<hr>
+<div id=copyright>
+    @copyright 2021 - Desenvolvido por Ana Sborz
+</div>
+<br>
+<div id= contatos>
+    <ul>
+        <li>
+             <a href="https://github.com/anasborz/"> 
+                <img src="C:\IzakeAna\Ana\CURSOS\GAMA ACADEMY\StartTech\HTML\Imagens\Github.png" width="3%"></a> 
+        </li>
+        <li>
+             <a href="https://www.linkedin.com/in/anapaulasborz/"> 
+                <img src="C:\IzakeAna\Ana\CURSOS\GAMA ACADEMY\StartTech\HTML\Imagens\Linkedin.png" width="3%"></a>
+        </li>
+    </ul>
+    </div>
