@@ -33,36 +33,40 @@
     </div>
     <hr>
     <br>
-    <div id="title">
-    <h2 >DADOS PESSOAIS</h2>
-    </div>
-    <div id=dadoscadastro class="form-inline">
+  
+    <div id=dadoscadastro class="container">
+    <form action="">
+        <div id="title">
+            <h2 >DADOS PESSOAIS</h2>
+            </div>
     <hr>
 
     <p><h3>
-        <label>Nome Completo
+        <label>Nome Completo 
             <input required= "" name="nome" type="text" id="nome" size="60" /></label><br /> 
         <label>Cargo Pretendido
-            <input name="cargo" type="text" id="cargo" size="58" /></label><br />             
+            <input name="cargo" type="text" id="cargo" size="60" /></label><br />             
     </h3>
     </p>    
-    <p> <h3>
+    <p > 
+        <h3 >
         <label> Data de Nascimento
-        <input type="date"></label><br>
-        Estado Civil
+        <input type="date">
+        </label>
+        <label> Estado Civil
         <select name "select">
             <option value= "valor1">- Selecione -</option>
             <option value= "valor2">Solteiro(a)</option>
             <option value= "valor3">Casado(a)</option>
             <option value= "valor4">Viúvo(a)</option>
-        </select>
-        Sexo
+        </select></label>
+        <label> Sexo
         <select name "select">
             <option value= "valor1">- Selecione -</option>
             <option value= "valor2">Feminino</option>
             <option value= "valor3">Masculino</option>
             <option value= "valor4">Não Binário</option>
-        </select>
+        </select></label>
     </p>
     </h3>
     <p><h3>
@@ -176,8 +180,9 @@
 <h2>DOCUMENTOS</h2>
 </div>   
     <hr>
-    <div display=inline>
-    <p><h3>
+    <div>
+    <p id=documentos>
+        <h3>
         <label> CPF
             <input type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00"></label><br />
         <label>Identidade (RG)
@@ -188,17 +193,18 @@
        <h3> <label for="exampleInputFile">Anexe aqui o seu currículo</label>
         <input type="file" id="exampleInputFile"></h3>
     </div>
-    </h3></p>
+        </h3>
+    </p>
 </body>
 
-<p >
+<p id=warning>
  Importante: Ao clicar no botão abaixo, você concorda com as políticas de privacidade praticadas pelo Jobs.net.
 </p>
 <a href="C:\IzakeAna\Ana\CURSOS\GAMA ACADEMY\StartTech\Desafio Final\mensagemfinal.html" >
 <button id="button2"> Cadastrar</a>
     
 </button>
-</div>
+</form></div>
 <br>
 <br>
 

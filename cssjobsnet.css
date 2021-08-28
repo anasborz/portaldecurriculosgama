@@ -9,6 +9,14 @@
     text-decoration: none;
 }
 
+.containera {
+    align-content: center;
+}
+
+h2, h3 {
+    text-align: left;
+}
+
 #cabeçalho ul li{
     display: inline;
     margin-inline-start: 10px;
@@ -31,29 +39,14 @@
     line-height: 35px;
 }
 
-#dadospessoais label {
-    margin-inline-start: 10px;
-}
-
-.container{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin-inline-start: 350px;
-}
-
-#logomenor, #dadoscadastro {
-    display:inline-block;
-}
-
 #title {
     font-size: 12px;
 }
 
 #dadoscadastro{
+    display:inline-table;
     font-size: 10px;
-    text-align: center;
-    width: 70%;
+    width: 80%;
     line-height: 30px;
 }
 
@@ -67,10 +60,22 @@
     text-decoration: none;
 }
 
-
 #vagas p {
     text-align: left;
     margin-inline-start: 40px;
+}
+
+#candidatese {
+    float: left;
+    margin-inline-start: 40px;
+}
+
+#vagas p{
+    background-color: lightgoldenrodyellow; 
+    border:1px solid black; 
+    padding: 10px; 
+    text-align:left;
+    margin-inline-end: 70%;
 }
 
 #contatos ul li a:hover{
@@ -99,7 +104,14 @@
     padding: 5px 10px;
     color:black;
     position:center;
-    
+}
+
+#buttonvaga {
+    text-decoration: none;
+    width: 100px;
+    padding: 5px 10px;
+    color:black;
+    position:left;
 }
 
 .form button {
@@ -124,3 +136,7 @@
 input{
         color: black;
     }
+
+#warning {
+    color: rgb(219, 11, 11);
+}
